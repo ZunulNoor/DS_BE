@@ -52,7 +52,7 @@ module.exports = {
             }
             return res.json({
                 success: 1,
-                message: "Voucher Updated Successfully"
+                message: "Success"
             })
         })
     },

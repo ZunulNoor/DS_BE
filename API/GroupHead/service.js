@@ -13,7 +13,7 @@ module.exports = {
         );
     },
     getGroupHead: callBack => {
-        pool.query('SELECT * FROM group_head',
+        pool.query('SELECT id, group_head, nature FROM group_head',
             [],
             (error, results, feilds) => {
                 if (error) {
@@ -23,7 +23,7 @@ module.exports = {
             })
     },
     getGroupHeadById: (id, callBack) => {
-        pool.query('SELECT * FROM group_head where id = ?',
+        pool.query('SELECT id, group_head, nature FROM group_head where id = ?',
             [id],
             (error, results, feilds) => {
                 if (error) {
@@ -33,7 +33,7 @@ module.exports = {
             })
     },
     updateGroupHead: (data, callBack) => {
-        pool.query('UPDATE group_head SET group_head = ?, nature = ? WHERE id = ?',
+        pool.query(`update group_head set group_head = ?, nature = ? where id = ?`,
             [data.group_head, data.nature, data.id],
             (error, results, feilds) => {
                 if (error) {

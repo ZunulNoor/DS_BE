@@ -1,7 +1,7 @@
 const pool = require('../../config/db')
 module.exports = {
     create: (data, callBack) => {
-        pool.query(`INSERT INTO user_detail(user_id, user_name, user_email, user_password, project_file_add, project_file_edit, project_file_delete, project_group_file_add, project_group_file_edit, project_group_file_delete, c_o_a_add, c_o_a_edit, c_o_a_delete, voucher_add, voucher_edit, voucher_delete, group_head_add, group_head_edit, group_head_delete, sub_head_add, sub_head_edit, sub_head_delete, role, user_add) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+        pool.query(`INSERT INTO user_detail(user_id, user_name, user_email, user_password, project_file_add, project_file_edit, project_file_delete, project_group_file_add, project_group_file_edit, project_group_file_delete, c_o_a_add, c_o_a_edit, c_o_a_delete, voucher_add, voucher_edit, voucher_delete, group_head_add, group_head_edit, group_head_delete, sub_head_add, sub_head_edit, sub_head_delete, role, user_add, reports, current_month) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
             ,
             [
                 data.user_id,
@@ -27,7 +27,9 @@ module.exports = {
                 data.sub_head_edit,
                 data.sub_head_delete,
                 data.role,
-                data.user_add
+                data.user_add,
+                data.reports,
+                data.current_month
             ],
             (error, results, feilds) => {
                 if (error) {
@@ -95,7 +97,9 @@ module.exports = {
     sub_head_edit = ?, 
     sub_head_delete = ?, 
     role = ?, 
-    user_add = ?
+    user_add = ?,
+    reports = ?,
+    current_month = ?
     where id = ?;
 `,
             [
@@ -123,6 +127,8 @@ module.exports = {
                 data.sub_head_delete,
                 data.role,
                 data.user_add,
+                data.reports,
+                data.current_month,
                 data.id
             ],
             (error, results, feilds) => {

@@ -1,5 +1,5 @@
 const { createGroupHead, getGroupHead, getGroupHeadById, updateGroupHead, deleteGroupHead } = require('./service');
-
+ 
 module.exports = {
     createGroupHead: (req, res) => {
         const body = req.body

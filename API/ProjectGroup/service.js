@@ -1,6 +1,6 @@
 const pool = require('../../config/db')
 
-module.exports = {
+module.exports = { 
     createProjectGroup: (data, callBack) => {
         pool.query('INSERT INTO project_group(project_group) VALUES (?)',
             [data.project_group],
