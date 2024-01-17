@@ -72,6 +72,8 @@ module.exports = {
                     role: checkExistingUser.role,
                     user_add: checkExistingUser.user_add,
                     role: checkExistingUser.role,
+                    reports: checkExistingUser.reports,
+                    current_month: checkExistingUser.current_month
                 },
                     process.env.SECRET_KEY
                 );
